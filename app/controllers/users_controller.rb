@@ -22,7 +22,7 @@
     @user = User.new(user_params)
     if @user.save
   @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
+      flash[:info] = "Consultez vos emails pour activer votre compte."
       redirect_to root_url
 
     else
@@ -36,7 +36,7 @@
 
     def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "Utilisateurs supprimés"
     redirect_to users_url
   end
 
@@ -45,7 +45,7 @@
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
 
-      flash[:success] = "Profile updated"
+      flash[:success] = "Votre profil a été mis à jour"
       redirect_to @user
 
       # Handle a successful update.
@@ -66,7 +66,7 @@
     def logged_in_user
       unless logged_in?
         store_location
-        flash[:danger] = "Please log in."
+        flash[:danger] = "Veuilez vous connecter."
         redirect_to login_url
       end
     end

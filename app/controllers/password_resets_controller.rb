@@ -12,10 +12,10 @@
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email
-      flash[:info] = "Email sent with password reset instructions"
+      flash[:info] = "Un email vous a été envoyé pour réinitialiser votre mot de passe."
       redirect_to root_url
     else
-      flash.now[:danger] = "Email address not found"
+      flash.now[:danger] = "Adresse email inconnue."
       render 'new'
     end
   end
@@ -25,11 +25,11 @@
 
    def update
     if password_blank?
-      flash.now[:danger] = "Password can't be blank"
+      flash.now[:danger] = "Vous devez renseigner un mot de passe"
       render 'edit'
     elsif @user.update_attributes(user_params)
       log_in @user
-      flash[:success] = "Password has been reset."
+      flash[:success] = "Votre mot de passe a été réinitalisé."
       redirect_to @user
     else
       render 'edit'
@@ -63,7 +63,7 @@ private
      # Checks expiration of reset token.
     def check_expiration
       if @user.password_reset_expired?
-        flash[:danger] = "Password reset has expired."
+        flash[:danger] = "La réinitalisation de votre mot de passe a expiré."
         redirect_to new_password_reset_url
       end
     end
