@@ -1,32 +1,38 @@
- <% if logged_in? %>
-  <div class="row">
+<% if logged_in? %>
+<div class="row">
+
     <aside class="col-md-4">
+
       <section class="user_info">
         <%= render 'shared/user_info' %>
       </section>
+
       <section class="micropost_form">
         <%= render 'shared/micropost_form' %>
       </section>
+
     </aside>
-    <div class="col-md-8">
+
+    <div class="col-md-4">
+
       <h3>Micropost Feed</h3>
       <%= render 'shared/feed' %>
+
+      <div class="col-md-4">
+          <%= link_to "Ajouter un client", new_client_path %><br><br>
+          <%= link_to "Voir vos clients", clients_path %>
+      </div>
+
     </div>
-  </div>
+
+</div>
 <% else %>
 
-
-
-<div class="center jumbotron">
-  <h1>Bienvenue sur Circularisation</h1>
-
-  <h2>
-Veuillez vous identifier pour accéder à vos circularisations en ligne
-  </h2>
-
-  <%= link_to "S'identifier", login_path, class: "btn btn-lg btn-primary" %>
-</div>
-
+    <div class="center jumbotron">
+      <h1>Bienvenue sur Circularisation</h1>
+      <h2>Veuillez vous identifier pour accéder à vos circularisations en ligne</h2>
+      <%= link_to "S'identifier", login_path, class: "btn btn-lg btn-primary" %>
+    </div>
 
 <% end %>
 

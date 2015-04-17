@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410015149) do
+ActiveRecord::Schema.define(version: 20150414114845) do
+
+  create_table "clients", force: :cascade do |t|
+    t.string   "name"
+    t.string   "number_and_street"
+    t.string   "zip_code"
+    t.string   "city"
+    t.integer  "user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "clients", ["user_id", "created_at"], name: "index_clients_on_user_id_and_created_at"
+  add_index "clients", ["user_id"], name: "index_clients_on_user_id"
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
