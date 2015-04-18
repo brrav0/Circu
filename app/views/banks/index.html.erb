@@ -1,0 +1,8 @@
+<h1>Vos Banques</h1>
+
+
+<% @banks.each do |bank| %>
+
+<h3><%= link_to bank.name, bank %></h3>
+
+<% end %>

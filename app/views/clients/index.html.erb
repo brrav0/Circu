@@ -3,6 +3,6 @@
 
 <% @clients.each do |client| %>
 
-<h3><%= client.name %></h3>
+<h3><%= link_to client.name, client %></h3>
 
 <% end %>

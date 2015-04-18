@@ -13,6 +13,7 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @client = current_user.clients.find(params[:id])
   end
 
   def create
