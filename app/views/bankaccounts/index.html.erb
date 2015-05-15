@@ -1,0 +1,34 @@
+<h1>Vos comptes</h1>
+
+<table class="table table-hover">
+
+  <tr>
+    <th>Banque</th>
+    <th>Client</th>
+    <th>Numéro de compte</th>
+    <th>Devise</th>
+    <th>Solde</th>
+    <th>Action</th>
+    <th>Dernière Activité</th>
+    <th>Reset</th>
+    <th>Supprimer</th>
+  </tr>
+
+<% @bankaccounts.each do |bankaccount| %>
+  <tr>
+    <td><%= bankaccount.bank.name %></td>
+    <td><%= bankaccount.client.name %></td>
+    <td><%= bankaccount.number %></td>
+    <td><%= bankaccount.currency %></td>
+    <td><%= bankaccount.balance %></td> 
+    <td><%= show_action_depending_on_bankaccount_status(bankaccount) %></td>
+    <td>Dernière Activité</td>
+    <td><%= link_to 'initialiser les comptes', reset_path(bankaccount) %></td>
+    <td><%= link_to "Supprimer le compte", bankaccount, method: :delete, data: { confirm: "Sûr ?" } %></td>
+  </tr>
+
+
+<% end %>
+</table>
+
+

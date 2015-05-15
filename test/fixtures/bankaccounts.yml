@@ -5,11 +5,11 @@ one:
   currency: MyString
   balance: 9.99
   client_id: 
-  signatory_id: 
+  bank_id: 
 
 two:
   number: MyString
   currency: MyString
   balance: 9.99
   client_id: 
-  signatory_id: 
+  bank_id: 

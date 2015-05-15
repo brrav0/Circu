@@ -3,6 +3,6 @@
 
 <% @banks.each do |bank| %>
 
-<h3><%= link_to bank.name, bank %></h3>
+<h3><%= link_to bank.name, bank %> | <%= link_to "Supprimer la banque", bank, method: :delete, data: { confirm: "sûr?" } %></h3>
 
 <% end %>

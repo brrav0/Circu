@@ -22,8 +22,26 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
   resources :clients,          only: [:new, :create, :destroy, :show, :index]
-  resources :banks,          only: [:new, :create, :show, :index]
+  resources :banks,          only: [:new, :create, :show, :index, :destroy]
   resources :signatories,          only: [:new, :create, :show, :index]
+  resources :bank_contacts,          only: [:new, :create, :show, :index]
+  resources :clientcontacts,          only: [:new, :create, :destroy, :show, :index]
+  resources :bankcontacts,          only: [:new, :create, :show, :index, :destroy]
+ 
+  get 'bankaccounts/indexclientcontact' => 'bankaccounts#indexclientcontact', as: 'indexclientcontact'
+  get 'bankaccounts/indexbankcontact' => 'bankaccounts#indexbankcontact', as: 'indexbankcontact'
+  resources :bankaccounts,          only: [:new, :create, :show, :index, :edit, :destroy]
+
+  get 'useractions/:id/share' => 'useractions#share', as: 'share'
+  get 'useractions/:id/issue' => 'useractions#issue', as: 'issue'
+  get 'useractions/:id/sign' => 'useractions#sign', as: 'sign'
+  get 'useractions/:id/answer' => 'useractions#answer', as: 'answer'
+  get 'useractions/reset/:id' => 'useractions#reset', as: 'reset'
+
+  get 'users/bankcontactupdate/:id' => 'users#bankcontactupdate', as: 'bankcontactupdate'
+  get 'users/clientcontactupdate/:id' => 'users#clientcontactupdate', as: 'clientcontactupdate'
+
+  get 'bankaccounts/index_admin' => 'bankaccounts#index_admin', as: 'bankaccountsadmin'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

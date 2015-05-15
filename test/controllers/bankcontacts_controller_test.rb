@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SignatoryTest < ActiveSupport::TestCase
+class BankcontactsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

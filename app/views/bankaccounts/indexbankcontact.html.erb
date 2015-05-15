@@ -1,0 +1,28 @@
+<h3>Les comptes de la banque <%= @bank %>  en attente de réponse</h3>
+
+<table class="table table-hover">
+
+  <tr>
+    <th>Banque</th>
+    <th>Numéro de compte</th>
+    <th>Devise</th>
+    <th>Solde</th>
+    <th>Signer</th>
+    <th>Statut</th>
+  </tr>
+
+<% @bankaccounts.each do |bankaccount| %>
+  <tr>
+    <td><%= bankaccount.bank.name %></td>
+    <td><%= bankaccount.number %></td>
+    <td><%= bankaccount.currency %></td>
+    <td><%= bankaccount.balance %></td> 
+    <td><%= show_action_depending_on_bankaccount_status(bankaccount) %></td>
+    <td>N/A</td>
+  </tr>
+
+
+<% end %>
+</table>
+
+

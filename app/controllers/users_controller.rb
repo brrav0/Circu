@@ -54,6 +54,22 @@
     end
   end
 
+  def bankcontactupdate
+    @user = User.find(params[:id])
+    if @user.update_attribute(:bankcontact, true)
+      flash[:info]="le user #{params[:id]} est désormais un contact banque."
+      redirect_to users_url
+    end
+  end
+
+  def clientcontactupdate
+    @user = User.find(params[:id])
+    if @user.update_attribute(:clientcontact, true)
+      flash[:info]="le user #{params[:id]} est désormais un contact client."
+      redirect_to users_url
+    end
+  end
+
   private
 
     def user_params

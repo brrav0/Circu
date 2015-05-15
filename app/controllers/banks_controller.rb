@@ -20,7 +20,12 @@ def create
     else
       render '/banks/new'
     end  
+end
 
+def destroy
+  Bank.find(params[:id]).destroy
+  flash[:success]="Banque supprimée."
+  redirect_to request.referrer || root_url
 end
 
 private
