@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428191832) do
+ActiveRecord::Schema.define(version: 20150521135417) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "number"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150428191832) do
     t.datetime "signed"
     t.datetime "issued"
     t.datetime "answered"
+    t.string   "comments"
   end
 
   add_index "bankaccounts", ["bank_id"], name: "index_bankaccounts_on_bank_id"

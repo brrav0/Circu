@@ -4,38 +4,40 @@ def show_action_depending_on_bankaccount_status(bankaccount)
 
 #@bankaccountid = bankaccount.id
 @id = bankaccount.id
+@bankaccount = bankaccount
 
 if current_user.clientcontact?
-
+#l'utilisteur est un contact client
   if bankaccount.signed.nil?
-    render '/bankaccounts/signed'
+    render '/bankaccounts/action/sign'
   elsif bankaccount.answered.nil?
-    render '/bankaccounts/nabank'
+    render '/bankaccounts/status/nabankclient'
       else
-        render '/bankaccounts/answered'
+        render '/bankaccounts/status/answered'
   end
 
     elsif current_user.bankcontact?
+#l'utilisateur est un contact banque
       if bankaccount.answered.nil?
-        render '/bankaccounts/answer'
+        render '/bankaccounts/action/check'
           else
-        render '/bankaccounts/nafinal'
+        render '/bankaccounts/status/nafinal'
       end
 
     else
 
   if bankaccount.shared.nil? 
-  #  bankaccount = bankaccount.id
-         render '/bankaccounts/shared'
+  #l'utilisateur est un commissaire aux comptes
+         render '/bankaccounts/action/share'
            elsif bankaccount.signed.nil?
-             render'/bankaccounts/naclient'
+             render'/bankaccounts/status/naclient'
 
           elsif bankaccount.issued.nil?
-            render '/bankaccounts/issued'
+            render '/bankaccounts/action/issue'
               elsif bankaccount.answered.nil?
-                render '/bankaccounts/nabank'
+                render '/bankaccounts/status/nabank'
                   else
-                    render '/bankaccounts/answered'
+                    render '/bankaccounts/action/report'
 
   end
 

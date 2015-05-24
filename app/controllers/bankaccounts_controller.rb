@@ -1,41 +1,58 @@
 class BankaccountsController < ApplicationController
 
 def index
+
+  @user = current_user
+  if logged_in? && !current_user.admin? && !current_user.bankcontact? && !current_user.clientcontact?
+
 #  for real application before deletion
 #  @bankaccounts = current_user.bankaccounts
 # for deletion
-  @bankaccounts = Bankaccount.all
-end
- 
-def indexclientcontact #metho for the client to see his/her related account
+# clients is an array - you cannot call a method on an array - you build another bankaccounts array by iterating through client  
+  clients = current_user.clients
+  @bankaccounts = Array.new
+  clients.each do |client|
+    @bankaccounts +=client.bankaccounts
+  end
+
+  render 'bankaccounts/indexuser'
+
+  elsif logged_in? && current_user.clientcontact?
 
   email = current_user.email
   clientcontact = Clientcontact.find_by(email: email)
   @id = clientcontact.client_id
   @client = clientcontact.client.name
-  @bankaccounts = Bankaccount.where("client_id = ?", @id)
-  #bankaccounts = Bankaccount.all
+  @bankaccounts = Bankaccount.where("client_id = ?", @id).where.not(shared: nil) 
+  render 'bankaccounts/indexclient'
 
-end
-
-def indexbankcontact#method for the bank contact to see his/her related account
+  elsif logged_in? && current_user.bankcontact?
 
   email = current_user.email
   bankcontact = Bankcontact.find_by(email: email)
   @id = bankcontact.bank_id
   @bank = bankcontact.bank.name
   @bankaccounts = Bankaccount.where("bank_id = ?", @id).where.not(issued: nil)
+  render 'bankaccounts/indexbank'
+
+  elsif logged_in? && current_user.admin?
+
+  @bankaccounts = Bankaccount.all
+  render 'bankaccounts/indexadmin'
+
+  else
+
+  render 'static_pages/home'
+
+  end
 
 end
-
-def index_admin#method for everyone
-  @bankaccount = Bankaccount.all
-end
-
+ 
 
 def new
   @bankaccount= Bankaccount.new
 end
+
 
 def create
 

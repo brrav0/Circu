@@ -20,6 +20,15 @@
 
   def create
     @user = User.new(user_params)
+    @email = @user.email
+    
+    if Clientcontact.where(email: @email).exists?
+      @user.update_attribute(:clientcontact, true)
+    elsif Bankcontact.where(email: @email).exists?
+      @user.update_attribute(:bankcontact, true) 
+    end
+
+    
     if @user.save
   @user.send_activation_email
       flash[:info] = "Consultez vos emails pour activer votre compte."

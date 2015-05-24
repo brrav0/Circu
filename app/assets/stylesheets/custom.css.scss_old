@@ -115,7 +115,6 @@ font-weight:bold;
 h11 {
 font-family: arial;
 font-size: 1.1em;
-text-align: left;
 }
 
 h12 {
@@ -136,11 +135,11 @@ p {
   margin-right: 10px;
   font-size: 2em;
   color: white;
-  #text-transform: uppercase;
+  text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 0px;
-  margin-top: 5px;
-  padding-bottom: 0px;
+  padding-top: 5px;
+  margin-top: 2px;
+  padding-bottom: 10px;
   font-weight: bold;
   &:hover {
     color: white;
@@ -148,6 +147,16 @@ p {
   }
 }
 
+h13 {
+  float: left;
+  margin-left: -7px;
+  font-size: 2em;
+  color: white;
+  padding-top: 5px;
+  margin-top: 2px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
 
 
 /* footer */

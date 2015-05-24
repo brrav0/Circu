@@ -8,16 +8,16 @@
     <%= form_for(@client) do |f| %>
       <%= render 'shared/error_messages_client' %>
 
-      <%= f.label :name %>
+      <%= f.label :name, "Nom" %>
       <%= f.text_field :name, class: 'form-control' %>
 
-      <%= f.label :number_and_street %>
+      <%= f.label :number_and_street, "Numéro et rue" %>
       <%= f.text_field :number_and_street, class: 'form-control' %>
 
-      <%= f.label :zip_code %>
+      <%= f.label :zip_code, "Code postal" %>
       <%= f.text_field :zip_code, class: 'form-control' %>
 
-      <%= f.label :city %>
+      <%= f.label :city, "Ville" %>
       <%= f.text_field :city, class: 'form-control' %>
 
 <%= f.submit "Ajoutez client", class: "btn btn-primary" %>

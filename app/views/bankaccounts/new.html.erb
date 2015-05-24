@@ -8,19 +8,19 @@
     <%= form_for(@bankaccount) do |f| %>
       <%= render 'shared/error_messages_bankaccount' %>
  
-      <%= f.label :bank_id %>
+      <%= f.label :bank_id, "Banque" %>
       <%= f.collection_select :bank_id, Bank.all, :id, :name %>
 
-      <%= f.label :client_id %>
+      <%= f.label :client_id, "Client" %>
       <%= f.collection_select :client_id, current_user.clients, :id, :name %>
 
-      <%= f.label :number %>
+      <%= f.label :number, "Numéro de compte" %>
       <%= f.text_field :number, class: 'form-control' %>
 
-      <%= f.label :currency %>
+      <%= f.label :currency, "Devise" %>
       <%= f.text_field :currency, class: 'form-control' %>
 
-      <%= f.label :balance %>
+      <%= f.label :balance, "Solde" %>
       <%= f.text_field :balance, class: 'form-control' %>
 
 

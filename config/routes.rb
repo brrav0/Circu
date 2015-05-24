@@ -28,26 +28,28 @@ Rails.application.routes.draw do
   resources :clientcontacts,          only: [:new, :create, :destroy, :show, :index]
   resources :bankcontacts,          only: [:new, :create, :show, :index, :destroy]
  
-  get 'bankaccounts/indexclientcontact' => 'bankaccounts#indexclientcontact', as: 'indexclientcontact'
-  get 'bankaccounts/indexbankcontact' => 'bankaccounts#indexbankcontact', as: 'indexbankcontact'
-  resources :bankaccounts,          only: [:new, :create, :show, :index, :edit, :destroy]
+  patch '/bankaccounts/:id' => 'useractions#answer_with_comments'
+  resources :bankaccounts,          only: [:new, :create, :index, :edit, :destroy]
 
   get 'useractions/:id/share' => 'useractions#share', as: 'share'
   get 'useractions/:id/issue' => 'useractions#issue', as: 'issue'
   get 'useractions/:id/sign' => 'useractions#sign', as: 'sign'
   get 'useractions/:id/answer' => 'useractions#answer', as: 'answer'
+  get 'useractions/:id/reject' => 'useractions#reject', as: 'reject'
+  get 'useractions/:id/check' => 'useractions#check', as: 'check'
+  get 'useractions/:id/report' => 'useractions#report', as: 'report'
   get 'useractions/reset/:id' => 'useractions#reset', as: 'reset'
+  get 'useractions/reset_bank_only/:id' => 'useractions#reset_bank_only', as: 'reset_bank_only'
 
   get 'users/bankcontactupdate/:id' => 'users#bankcontactupdate', as: 'bankcontactupdate'
   get 'users/clientcontactupdate/:id' => 'users#clientcontactupdate', as: 'clientcontactupdate'
 
-  get 'bankaccounts/index_admin' => 'bankaccounts#index_admin', as: 'bankaccountsadmin'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'static_pages#home'
+   root 'bankaccounts#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
