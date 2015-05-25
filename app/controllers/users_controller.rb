@@ -20,6 +20,15 @@
 
   def create
     @user = User.new(user_params)
+    @email = @user.email
+    
+    if Clientcontact.where(email: @email).exists?
+      @user.update_attribute(:clientcontact, true)
+    elsif Bankcontact.where(email: @email).exists?
+      @user.update_attribute(:bankcontact, true) 
+    end
+
+    
     if @user.save
   @user.send_activation_email
       flash[:info] = "Consultez vos emails pour activer votre compte."
@@ -51,6 +60,22 @@
       # Handle a successful update.
     else
       render 'edit'
+    end
+  end
+
+  def bankcontactupdate
+    @user = User.find(params[:id])
+    if @user.update_attribute(:bankcontact, true)
+      flash[:info]="le user #{params[:id]} est désormais un contact banque."
+      redirect_to users_url
+    end
+  end
+
+  def clientcontactupdate
+    @user = User.find(params[:id])
+    if @user.update_attribute(:clientcontact, true)
+      flash[:info]="le user #{params[:id]} est désormais un contact client."
+      redirect_to users_url
     end
   end
 

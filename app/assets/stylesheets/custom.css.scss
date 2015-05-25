@@ -52,19 +52,75 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  font-family: arial;
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
 }
 
+
+
 h2 {
-  font-size: 1.2em;
+  font-size: 2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
   font-weight: normal;
   color: $gray-light;
+}
+
+h3 {
+  font-family: arial;
+  font-size: 4em;
+  letter-spacing: -3px;
+  margin-bottom: 30px;
+  text-align: left;
+  font-weight: bold;
+}
+
+h5 {
+font-family: arial;
+text-align: left;
+}
+
+h7 {
+font-family: arial;
+font-size: 2em;
+text-align: left;
+color: black;
+}
+
+h8 {
+font-family: arial narrow;
+font-size: 1.5em;
+text-align: left;
+letter-spacing: -0.5px;
+}
+
+h9 {
+font-family: arial;
+text-align: center;
+font-size: 1.7em;
+font-weight:bold;
+}
+
+h10 {
+font-family: arial;
+text-align: center;
+font-size: 1.3em;
+font-weight:bold;
+}
+
+h11 {
+font-family: arial;
+font-size: 1.1em;
+text-align: left;
+}
+
+h12 {
+font-family: arial;
+text-align: left;
 }
 
 p {
@@ -78,17 +134,21 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 2em;
   color: white;
-  text-transform: uppercase;
+  #text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 0px;
+  margin-top: 5px;
+  padding-bottom: 0px;
   font-weight: bold;
   &:hover {
     color: white;
     text-decoration: none;
   }
 }
+
+
 
 /* footer */
 
@@ -260,4 +320,92 @@ span.picture {
   }
 }
 
+/* grid */
+.background {
+background: #e0dbdb;
+padding-top: 10px;
+padding-bottom:50px;
+}
 
+.sidelink {
+font-size: 85%;
+font-family: arial;
+color: grey;
+}
+.sidelink:hover {
+font-size: 90%;
+font-weight: bold;
+color: grey;
+text-decoration: none;
+}
+
+.sidetitle {
+font-family: arial;
+}
+
+.user {
+font-size: 125%;
+font-family: arial;
+color: black;
+}
+
+td {
+color: black;
+font-size: 95%;
+text-align: left;
+}
+
+th {
+vertical-align: center;
+horizontal-align: center;
+
+}
+
+.custom-button-default {
+border: 0;
+background: none;
+}
+
+.left {
+text-align: left;
+}
+
+a {
+color: black;
+font-size: 95%;
+text-align: left;
+}
+
+a.hover {
+color: black;
+font-size: 95%;
+text-decoration: none;
+} 
+
+.btn-confirm {width: 15%;}
+
+.btn-reject {width: 40%;}
+
+.form-comments {width: 50% }
+
+.jumbotron {
+background: white;
+padding-bottom:1px;
+margin-bottom:1px;
+}
+
+.im-centered { margin: auto; max-width: 500px;}
+
+.flowchart {
+background-color: white;
+border-radius: 10px;
+border-style: solid;
+border-size: 1px;
+border-color: grey;
+vertical-align: middle;
+}
+
+.flowchart-arrow {
+vertical-align: middle;
+
+}

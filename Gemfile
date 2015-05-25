@@ -8,8 +8,10 @@ gem 'bootstrap-sass', '3.2.0.0'
 gem "will_paginate", "~> 3.0.4" 
 gem 'faker', '1.4.2'
 gem 'bootstrap-will_paginate', '0.0.10'
-
-
+gem 'prawn'
+gem 'prawnto', '0.1.1'
+gem 'prawnto_2', :require => 'prawnto'
+gem 'prawn-table'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
