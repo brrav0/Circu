@@ -14,6 +14,7 @@ end
 test "User id should be present" do
 @client.user_id = nil
 assert_not @client.valid?
+
 end
 
 test "name should be present" do
@@ -48,8 +49,5 @@ test "city should be present" do
 assert_not @client.valid?
 end
 
-test "order should be most recent first" do
-assert_equal Client.first, clients(:most_recent)
-end
 
 end
