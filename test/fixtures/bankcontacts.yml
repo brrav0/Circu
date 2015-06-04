@@ -11,3 +11,9 @@ two:
   last_name: MyString
   email: MyString
   bank_id: 
+
+bankcontact:
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  bank_id: 1
