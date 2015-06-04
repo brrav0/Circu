@@ -8,7 +8,35 @@ michael:
   activated: true
   activated_at: <%= Time.zone.now %>
 
+auditor:
+  name: Bastien Ravandison
+  email: bastien.ravandison@gmail.com
+  password_digest: <%= User.digest('password') %>
+  admin: false
+  bankcontact: false
+  clientcontact: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
+clientcontact:
+  name: Xavier Niel
+  email: xavier.niel@free.com
+  password_digest: <%= User.digest('password') %>
+  admin: false
+  bankcontact: false
+  clientcontact: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+bankcontact:
+  name: Bruno D'Illiers
+  email: bruno.dilliers@bnpparibas.com
+  password_digest: <%= User.digest('password') %>
+  admin: false
+  bankcontact: true
+  clientcontact: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 archer:
   name: Sterling Archer

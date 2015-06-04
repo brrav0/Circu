@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
 
-  has_many :microposts, dependent: :destroy
   has_many :clients, dependent: :destroy
   has_many :bankaccounts, through: :clients
   attr_accessor :remember_token, :activation_token, :reset_token
