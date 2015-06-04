@@ -12,4 +12,11 @@ two:
   currency: MyString
   balance: 9.99
   client_id: 
-  bank_id: 
+  bank_id:
+
+bankaccount:
+  number: 9999999999
+  currency: EUR
+  balance: 9.99
+  client_id: 6 
+  bank_id: 1
