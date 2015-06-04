@@ -7,6 +7,7 @@ To do:
 - additional information on auditor (accounting firms)
 - more precision on bank accounts (BIC, IBAN)
 - Format with each header (print out once online)
+- manage the time
 
 Done:
 - Enhanced model testing
