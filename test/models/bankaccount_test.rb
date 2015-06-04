@@ -7,16 +7,16 @@ def setup
 end
 
 test "should be valid" do
-assert @bankccount.valid?
+assert @bankaccount.valid?
 end
 
 test "client id should be present" do
 @bankaccount.client_id = nil
-assert_not @clientcontact.valid?
+assert_not @bankaccount.valid?
 end
 
 test "bank id should be present" do
-@bankaccount.user_id = nil
+@bankaccount.bank_id = nil
 assert_not @bankaccount.valid?
 end
 
