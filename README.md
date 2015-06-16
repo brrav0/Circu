@@ -12,6 +12,8 @@ To do:
 - more precision on bank accounts (BIC, IBAN)
 - Format with each header (print out once online)
 - manage the time
+- help moving backward
+>>> NO MORE WORK TO DO NEED TO WORK ON APP-505 FOR POSTGRES/CORRECTION AND MIGRATION
 
 Done:
 - Enhanced model testing
